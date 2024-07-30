@@ -227,6 +227,10 @@ section {
     color: #555;
 }
 
+.recipes{
+    padding-top: 0;
+}
+
 /* Contact styling */
 .contact form {
     display: flex;
