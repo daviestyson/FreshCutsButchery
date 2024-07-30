@@ -17,6 +17,7 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
+/* Header Styles */
 header {
     background: #2c3e50;
     color: #fff;
@@ -46,12 +47,11 @@ header h2 {
     text-align: center;
 }
 
+/* Navigation Styling */
 .navmenu{
     display: flex;
     align-items: center;
     /* display: none; */
-
-
 } 
 .navmenu.active {
     display: flex;
@@ -103,6 +103,7 @@ header h2 {
     color: #e74c3c;
 }
 
+/* Hero Section */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),url('images/background.jpg') no-repeat center center/cover ;
     color: #fff;
@@ -156,6 +157,7 @@ section {
     font-size: 1.1em;
 }
 
+/* Our Products Section Styling */
 .products {
     display: flex;
     align-items: center;
@@ -206,6 +208,26 @@ section {
     font-size: 1em;
 }
 
+/* Recipes Section */
+.recipes h2, .recipes h3 {
+    text-align: center;
+}
+
+.recipe {
+    margin-left: 20px;
+}
+
+.recipe h4 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.recipe p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Contact styling */
 .contact form {
     display: flex;
     flex-direction: column;
@@ -234,6 +256,7 @@ section {
     background: #34495e;
 }
 
+/* Footer Section */
 footer {
     background: #2c3e50;
     color: #fff;
@@ -242,7 +265,7 @@ footer {
     margin-top: 20px;
 }
 
-
+/* Responsive Styles */
 @media screen  and (max-width: 768px){
     .products .product{
         flex: 1 0 40%; /* Responsive breakpoints */
