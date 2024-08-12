@@ -113,24 +113,27 @@ header h2 {
     align-items: center;
     text-align: center;
 }
-/* .mainLogo{
-    width: 200px;
-    text-align: center;
-     height: 150px;  
-    margin: 0;
-    /* margin-top: 1px;  
-} */
 
-.hero .container h2 {
+.hero-recipe {
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),url('recipe-images/recipebg.jpg') no-repeat center center/cover ;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero .container h2, .hero-recipe .container h2 {
     font-size: 3em;
     margin-bottom: 20px;
 }
 
-.hero .container p {
+.hero .container p, .hero-recipe .container p {
     font-size: 1.2em;
 }
 
-.hero .btn {
+.hero .btn, .hero-recipe .btn {
     background: #e74c3c;
     color: #fff;
     padding: 10px 20px;
@@ -139,7 +142,7 @@ header h2 {
     transition: background 0.3s;
 }
 
-.hero .btn:hover {
+.hero .btn:hover, .hero-recipe .btn:hover {
     background: #c0392b;
 }
 
@@ -209,27 +212,22 @@ section {
 }
 
 /* Recipes Section */
-.recipes h2, .recipes h3 {
+ #recipes h1{
     text-align: center;
 }
 
-.recipe {
-    margin-left: 20px;
+.recipe-img{
+    width: 80%;
+    height: 20%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.recipe h4 {
-    font-size: 1.5rem;
-    color: #333;
-}
-
-.recipe p {
-    font-size: 1rem;
-    color: #555;
-}
-
-.recipes{
-    padding-top: 0;
-}
 
 /* Contact styling */
 .contact form {
