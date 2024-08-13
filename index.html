@@ -6,17 +6,32 @@
     <title>Fresh Cuts Butchery under Kish Farm Enterprises</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images\freshlogo-removebg-preview.png">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Laila&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <!--Dropdown icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="headcontainer">
             <img src="images\kish_farm_logo-transparent.png" alt="**" class="logo">
             <h2>Fresh Cuts Butchery</h2>
             <nav class="navmenu">
                 <ul >
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About Us</a></li>
-                    <li><a href="#products">Products</a></li>
+                    <!-- <li class="dropdown">
+                        <a href="#" class="dropbtn">Products <i class="fa fa-caret-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#beef">Beef Products</a></li>
+                            <li><a href="#chicken">Chicken Products</a></li>
+                            <li><a href="#lamb">Lamb Products</a></li>
+                            <li><a href="#rabbit">Rabbit Products</a></li>
+                        </ul>
+                    </li> -->
+                    <li><a href="#products">Products <i class="fa fa-caret-down"></i></a></li>
                     <li><a href="pages\recipe.html">Recipes</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -44,6 +59,8 @@
         <div class="container">
             <h2>Our Products</h2>
             <br>
+
+            <div class="products-divider" id="beef">
             <h3>Beef Products</h3>
             <div class="product-list">
                 <!-- Beef Products -->
@@ -77,7 +94,9 @@
                     <p>Seasoned Beef Patties</p>
                 </div>
                 </div><!-- product-list -->
+            </div>
 
+            <div class="products-divider" id="chicken">
                 <!-- Chicken Products -->
                 <h3>Chicken Products</h3>
                 <div class="product-list">
@@ -114,7 +133,9 @@
                     <p>Marinated Whole Chicken</p>
                 </div>
                 </div><!-- product-list -->
+            </div>
 
+            <div class="products-divider" id="lamb">
                 <!-- Lamb Products -->
                 <h3>Lamb Products</h3>
                 <div class="product-list">
@@ -144,7 +165,9 @@
                 </div>
 
                 </div><!-- product-list -->
+            </div>
 
+            <div class="products-divider" id="rabbit">
                 <!-- Rabbit Products -->
                 <h3>Rabbit Products</h3>
                 <div class="product-list">
@@ -181,6 +204,7 @@
                     <p>Rabbit Patties</p>
                 </div>
                 </div><!-- product-list -->
+            </div>
         </div>
     </section>
 
