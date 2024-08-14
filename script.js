@@ -1,4 +1,11 @@
 // script.js
+
+// JavaScript to hide the loader and show the content once the page is fully loaded
+window.addEventListener("load", function() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("content").style.display = "block";
+});
+
 //function that displays the dropdown menu when the screen is reduced
 function toggleMenu() {
     const navMenu = document.querySelector('.navmenu');
@@ -43,21 +50,20 @@ document.addEventListener('click', function(event){
     }
 });
 
-// Toggle Dropdown on Click
-document.querySelector('.dropbtn').addEventListener('click',function(event){
-    event.preventDefault();
-    this.nextElementSibling.classList.toggle('show');
-});
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event){
-    if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName('dropdown-content');
-    for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
+document.addEventListener('DOMContentLoaded', function() {
+    const dropBtn = document.querySelector('.dropbtn');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+
+    dropBtn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default anchor action
+        dropdownMenu.classList.toggle('show'); // Toggle the 'show' class on click
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.addEventListener('click', function(event) {
+        if (!dropBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove('show');
         }
-    }
-}
-};
+    });
+});

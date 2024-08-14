@@ -16,7 +16,65 @@ body, html {
     box-sizing: border-box;
     font-family: "Nunito", sans-serif;
 }
+/* Loader Styles */
+#loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+/* .spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+} */
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 4px solid #2c3e50;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .spinner::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border-left: 4px solid #FF3D00;
+    border-bottom: 4px solid transparent;
+    animation: rotation 0.5s linear infinite reverse;
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
 /* Header Styles */
 header {
     background: #2c3e50;
@@ -53,6 +111,7 @@ header .headcontainer h2 {
 .navmenu{
     display: flex;
     align-items: center;
+    /* flex-direction: row; */
     /* display: none; */
 } 
 .navmenu.active {
@@ -78,6 +137,7 @@ header .headcontainer h2 {
 
 .navmenu ul li {
     margin: 0 10px;
+    position: relative;
 }
 
 .navmenu ul li a {
@@ -109,26 +169,31 @@ header .headcontainer h2 {
 
 .dropdown{
     position: relative;
-    display: inline-block; 
 }
 
 .dropdown-menu{
     display: none;
     position: absolute;
     background-color: #2d465e;
-    min-width: 160px;
+    min-width: 184px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: 99;
+    top: 100%;/* Position below the header */
+    left: 0;
+    margin: 0;
+    padding: 10px 0;
+    list-style-type: none;
+    flex-direction: column;
 }
 
-/* Show the Dropdown Menu on Click */
-.dropdown:hover .dropdown-content {
+.dropdown-menu li {
+    padding: 8px 16px;
     display: block;
 }
 
-/* Show Dropdown on Click */
-.show {
-    display: block;
+.dropdown:hover .dropdown-menu,
+.dropdown .dropdown-menu.show {
+    display: block; /* Show dropdown on hover or when the 'show' class is added */
 }
 
 /* Hero Section */
