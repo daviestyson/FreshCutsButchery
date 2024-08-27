@@ -30,20 +30,6 @@ body, html {
     align-items: center;
 }
 
-/* .spinner {
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid #3498db;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-} */
-
 .spinner {
     width: 48px;
     height: 48px;
@@ -74,7 +60,8 @@ body, html {
     100% {
       transform: rotate(360deg);
     }
-  } 
+  }
+
 /* Header Styles */
 header {
     background: #2c3e50;
@@ -106,6 +93,33 @@ header .headcontainer h2 {
     font-family: "Laila", serif;
     font-style: normal;
 }
+/*Go up button*/
+#goUpBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #e74c3c;
+    color: black;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  
+  }
+  
+  #goUpBtn:hover {
+    background-color: #2c3e50;
+    color: white;
+  }
+  #goUpBtn img{
+    width: 20px;
+    height: 20px;
+  }
+  
 
 /* Navigation Styling */
 .navmenu{
