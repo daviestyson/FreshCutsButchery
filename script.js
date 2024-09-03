@@ -88,3 +88,88 @@ function topFunction(){
     // document.body.scrollTop = 0; // For Safari
     // document.documentElement.scrollTop = 0; // For Chrome,
 }
+
+//cart js
+let cart = []; //creating an array/list of cart items
+
+function addToCart(productName, pricePerKg) {
+    let quantityElement = document.getElementById(`quantity-${productName.toLowerCase().replace(/ /g, '-').replace(/[()]/g, '')}`);
+    let isKg = false; // Flag to track if the unit should be "kg"
+    // let quantityValue = parseFloat(quantityElement.value);
+
+    // //handling no quantity selected
+    // if (!quantityValue) {
+    //     alert("Select quantity!");
+    //     return;
+    // }
+
+    // Check if the element exists and determine its type (input or select)
+    let quantityValue;
+    if (quantityElement && quantityElement.tagName.toLowerCase() === 'input') {
+        quantityValue = parseFloat(quantityElement.value); // For number input field
+        console.log(`Value picked is ${quantityValue}`);
+    } else if (quantityElement && quantityElement.tagName.toLowerCase() === 'select') {
+        quantityValue = parseFloat(quantityElement.value); // For dropdown select
+        isKg = true;
+        console.log(`Value picked is ${quantityValue}`);
+    } 
+
+    // Validate quantity (ensure it's a positive number)
+    // if (isNaN(quantity) || quantity <= 0) {
+    //     alert('Please enter a valid quantity.');
+    //     return;
+    // }
+
+    //Getting the total price
+    
+    let totalPrice = pricePerKg * quantityValue;
+
+    //checking whether the item was prior on the array
+    // let product = cart.find(item => item.name === productName);
+
+    // if (product){
+    //     product.quantity += quantityValue;
+    // }
+    // else{
+    //     //adding to the cart array
+    //     cart.push({
+    //         itemName: productName,
+    //         quantity: quantityValue,
+    //         price: totalPrice,
+    //     });
+    // }
+
+    //adding to the cart array
+    cart.push({
+        itemName: productName,
+        quantity: quantityValue,
+        price: totalPrice,
+    });
+
+    // Display alert with appropriate units
+    const unit = isKg ? 'kg' : 'piece(s)';
+    alert(`Added to Cart____Name: ${productName} Quantity: ${quantityValue}${unit} Total Price: ${totalPrice}`);
+    
+    
+    // if (quantityElement && quantityElement.tagName.toLowerCase() === 'input') {
+    //     alert(`Added to Cart<br> Name: ${productName} Quantity: ${quantityValue} Total Price: ${totalPrice}`); // For number input field
+    // } else if (quantityElement && quantityElement.tagName.toLowerCase() === 'select') {
+    //     alert(`Added to Cart<br> Name: ${productName} Quantity: ${quantityValue}kg Total Price: ${totalPrice}`); // For dropdown select
+    // } 
+
+
+}
+
+//cart js
+// Function to toggle the cart overlay
+function toggleCart() {
+    const cartOverlay = document.getElementById('cartOverlay');
+    cartOverlay.style.display = (cartOverlay.style.display === 'flex') ? 'none' : 'flex';
+}
+
+// Add event listener to the cart link
+document.getElementById('cartlink').addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent default link behavior
+    toggleCart();
+
+});

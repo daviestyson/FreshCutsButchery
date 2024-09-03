@@ -44,7 +44,7 @@
                     <li><a href="#products">Products </a></li>
                     <li><a href="pages\recipe.html">Recipes</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#cart" title="Your Cart"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+                    <li><a id="cartlink" href="#cart" title="Your Cart"><i  class="fa-solid fa-cart-shopping"></i> Cart</a></li>
                 </ul>
             </nav>
             <div class="hamburger" onclick="toggleMenu()">☰</div>
@@ -54,6 +54,19 @@
 
     <!--Go up button-->
     <button onclick="topFunction()" id="goUpBtn" title="Go to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+    <!-- Cart Overlay -->
+    <div id="cartOverlay" class="cart-overlay">
+        <div class="cart-content">
+            <!-- <span class="close-cart" onclick="toggleCart()">&times;</span> -->
+            <i id="close-cart" onclick="toggleCart()" class="fas fa-times"></i>
+            <h2>Your Cart</h2>
+            <div id="cartItems">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
 
     <section id="home" class="hero">
         <div class="container">
@@ -80,26 +93,24 @@
                 <!-- Beef Products -->
                 
                 <div class="product">
-                    <p>Beef Fingers</p>
+                    <p >Beef Fingers</p>
                     <img src="images\beef fingers boneless.jpeg" alt="Beef Fingers">
                     <p>Price per kg: Sh600</p>
-                    <form>
+                    <!-- <form> -->
                     <label for="quantity-beef-fingers"><b>Select Quantity:</b></label><br>
-                    <select id="quantity-beef-fingers" name="quantity">
+                     <select title="quantity-beef-fingers" id="quantity" name="quantity"> 
                         <option> </option>
                         <option value="0.25">1/4 kg</option>
                         <option value="0.5">1/2 kg</option>
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select>
-                    <!-- <label for="quantity"><b>Quantity:</b></label><br>
-                    <input type="number" id="quantity" name="quantity"> -->
-                    </form>
+                    <br>
                     <br>
                     <button onclick="addToCart('BEEF FINGERS', 600)">
                         <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart
                     </button>
-                
+                    <!-- </form> -->
                 </div>
                 <div class="product">
                     <p>Teriyaki Beef Bites</p>
@@ -122,7 +133,7 @@
                     <img src="images\spicy meatballs.jpg" alt="Spicy Beef Meatballs">
                     <p>Price per kg: Sh650</p>
                     <label for="quantity-spicy-meatballs"><b>Select Quantity:</b></label>
-                    <select id="quantity-spicy-meatballs" name="quantity">
+                    <select id="quantity-spicy-meatballs"  name="quantity">
                         <option> </option>
                         <option value="0.25">1/4 kg</option>
                         <option value="0.5">1/2 kg</option>
@@ -137,7 +148,7 @@
                     <img src="images\Steak-Bites.jpg" alt="Beef BBQ Bites">
                     <p>Price per kg: Sh680</p>
                     <label for="quantity-beef-bbq-bites"><b>Select Quantity:</b></label>
-                    <select id="quantity-beef-bbq-bites" name="quantity">
+                    <select id="quantity-beef-bbq-bites"  name="quantity">
                         <option> </option>
                         <option value="0.25">1/4 kg</option>
                         <option value="0.5">1/2 kg</option>
@@ -309,7 +320,7 @@
                     <img src="images\marinated whole chicken.png" alt="Marinated Whole Chicken" class="oveflow-pic">
                     <p>Price per piece: Sh1200</p>
                     <label for="quantity-chicken-kienyeji"><b>Enter Quantity(Number):</b></label>
-                    <input type="number" id="quantity-chicken-kienyeji" name="quantity">
+                    <input type="number" id="quantity-marinated-whole-chicken-kienyeji" name="quantity">
 
                     <br><br>
                     <button onclick="addToCart('MARINATED WHOLE CHICKEN (KIENYEJI)', 1200)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
@@ -321,9 +332,9 @@
                     <img src="images\marinated whole chicken.png" alt="Marinated Whole Chicken" class="oveflow-pic">
                     <p>Price per piece: Sh850</p>
                     <label for="quantity-chicken-broiler"><b>Enter Quantity(Number):</b></label>
-                    <input type="number" id="quantity-chicken-broiler" name="quantity">
+                    <input type="number" id="quantity-marinated-whole-chicken-broiler" name="quantity">
                     <br><br>
-                    <button onclick="addToCart('MARINATED WHOLE CHICKEN (KIENYEJI)', 1200)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                    <button onclick="addToCart('MARINATED WHOLE CHICKEN (BROILER)', 1200)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
                 
                 </div>
                 </div><!-- product-list -->
@@ -452,7 +463,7 @@
                     <img src="images\rabbit meat.png" alt="Tandoori Rabbit Meat" class="oveflow-pic">
                     <p>Price per piece: Sh2200</p>
                     <label for="quantity-rabbit-full"><b>Enter Quantity(Number):</b></label>
-                    <input type="number" id="quantity-rabbit-full" name="quantity">
+                    <input type="number" id="quantity-tandoori-rabbit-meat-full" name="quantity">
                     <br><br>
                     <button onclick="addToCart('TANDOORI RABBIT MEAT FULL', 2200)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
                 
