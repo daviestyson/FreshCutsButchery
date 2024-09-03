@@ -115,10 +115,10 @@ function addToCart(productName, pricePerKg) {
     } 
 
     // Validate quantity (ensure it's a positive number)
-    // if (isNaN(quantity) || quantity <= 0) {
-    //     alert('Please enter a valid quantity.');
-    //     return;
-    // }
+    if (isNaN(quantityValue) || quantityValue <= 0) {
+        alert('Please enter a valid quantity.');
+        return;
+    }
 
     //Getting the total price
     
