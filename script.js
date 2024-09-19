@@ -81,6 +81,33 @@ function topFunction(){
 //cart js
 let cart = []; //creating an array/list of cart items
 
+function displayEmptyMessage() {
+    const notEmptyCart = document.getElementsByClassName('cart-not-empty');
+
+    const emptyCart = document.getElementById('cart-is-empty');
+    // const notEmptyCart = document.getElementsByClassName('cart-not-empty');
+    if (cart.length === 0){
+        console.log("cart is empty");
+        try {
+            emptyCart.classList.remove('hidden');
+            notEmptyCart.classList.add('hidden');
+            console.log("cart is empty displayed"); 
+        } catch (error) {
+           console.log(`error: ${error}`) ;
+        }
+
+    }
+    else{
+        try {
+            emptyCart.classList.add('hidden');
+            notEmptyCart.classList.remove('hidden'); 
+            console.log("table displayed successfully") 
+        } catch (error) {
+            console.log(`error: ${error}`) ;
+        }
+
+    }
+}
 
 
 function addToCart(productName, pricePerKg) {
@@ -88,7 +115,7 @@ function addToCart(productName, pricePerKg) {
     let isKg = false; // Flag to track if the unit should be "kg"
 
     // Find the closest parent element that contains the product's HTML structure
-    const productElement = quantityElement.closest('.product');
+    // const productElement = quantityElement.closest('.product');
 
     // Automatically find the first image inside the product element
     // const productImageElement = productElement.querySelector('img');
@@ -113,10 +140,10 @@ function addToCart(productName, pricePerKg) {
     }
 
     //Getting the total price   
-    let totalPrice = pricePerKg * quantityValue;
+    let totalPrice = Math.round(pricePerKg * quantityValue) ;
 
     // checking whether the item was prior on the array
-    let product = cart.find(item => item.name === productName);
+    let product = cart.find(item => item.itemName === productName);
 
     if (product){
         product.quantity += quantityValue;
@@ -131,13 +158,7 @@ function addToCart(productName, pricePerKg) {
         });
     }
 
-    // //adding to the cart array
-    // cart.push({
-    //     itemName: productName,
-    //     quantity: quantityValue,
-    //     price: totalPrice,
-    //     // image: productImg,
-    // });
+
 
 
     // Update the cart display / the cart overlay
@@ -172,16 +193,20 @@ function updateCartDisplay(){
     const cartItemsContainer = document.getElementById('cartItems');
     cartItemsContainer.innerHTML = ''; // Clear previous items before rendering the new ones
     var grandTotal = 0;
+    // const cartTable = document.getElementsByClassName('cart-table');
 
     // const emptyCart = document.getElementsById('cart-is-empty');
-    // const notEmptyCart = document.getElementsByClassName('cart-not-empty');
+    // // const notEmptyCart = document.getElementsByClassName('cart-not-empty');
     // if (cart.length === 0){
     //     emptyCart.style.display = 'block';
+    //     cartTable.style.display = 'none';
     // }
     // else{
     //     emptyCart.style.display = 'none';
-    //     notEmptyCart.style.display = 'block';
+    //     cartTable.style.display = 'block';
+    //     // notEmptyCart.style.display = 'block';
     // }
+
         cart.forEach((item, index) => {
             //creating a new div with class cart-item for each cart item
             const cartItem = document.createElement('tr');
@@ -203,9 +228,9 @@ function updateCartDisplay(){
 
         document.getElementsByClassName('grand-total')[0].innerHTML = 'Sh'+grandTotal;
 
-
-    
-
+        // Call the function to show/hide the empty cart message
+        console.log(cart.length);
+        displayEmptyMessage();
 }
 
 
@@ -216,6 +241,7 @@ const cartOverlay = document.getElementById('cartOverlay');
 
 cartLink.addEventListener('click', function(e){
     e.preventDefault();
+    
     // cartOverlay.style.display = (cartOverlay.style.display === 'flex') ? 'none' : 'flex';
     if (cartOverlay.style.transform === 'translateX(-200%)'){
         cartOverlay.style.transform = 'translateX(0)';

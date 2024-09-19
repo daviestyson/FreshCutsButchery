@@ -246,9 +246,12 @@ header .headcontainer h2 {
 
 #cart-is-empty{
     text-align: center;
-    display: none;
+    
 }
 .cart-not-empty{
+    /* display: none; */
+}
+.hidden{
     display: none;
 }
 /* #cartItems{
@@ -271,6 +274,7 @@ header .headcontainer h2 {
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    display: table;
 }
 .cart-table thead{
     background-color: #ecf0f1;
