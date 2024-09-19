@@ -33,7 +33,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <!-- <li class="dropdown">
-                        <a href="#" class="dropbtn">Products <i class="fa fa-caret-down"></i></a>
+                        <a href="" class="dropbtn">Products <i class="fa fa-caret-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="#beef">Beef Products</a></li>
                             <li><a href="#chicken">Chicken Products</a></li>
@@ -57,14 +57,33 @@
 
     <!-- Cart Overlay -->
     <div id="cartOverlay" class="cart-overlay">
-        <div class="cart-content">
+        <div class="cart-content" id="cartContent">
             <!-- <span class="close-cart" onclick="toggleCart()">&times;</span> -->
-            <i id="close-cart" onclick="toggleCart()" class="fas fa-times"></i>
+            <i id="close-cart" class="fas fa-times"></i>
             <h2>Your Cart</h2>
-            <div id="cartItems">
+                <h1 id="cart-is-empty">Cart is empty</h1>
                 <!-- Cart items will be dynamically inserted here -->
-            </div>
-            <button class="checkout-btn">Checkout</button>
+                <!-- <div class="cart-not-empty"> -->
+                <table class="cart-table">
+                    <thead>
+                    <tr>
+                        <!-- <th></th> -->
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="cartItems">
+                    <!-- Cart items will be dynamically inserted here -->
+                    </tbody>
+                 </table>
+                 <div class="total">
+                    <h1 class="cart-total">Total</h1>
+                    <span class="grand-total">Sh0</span>
+                <button class="checkout-btn">Checkout</button>
+                </div>
+                <!-- </div>  -->
         </div>
     </div>
 
@@ -87,16 +106,16 @@
         <div class="container">
             <h2>Our Products</h2>
             <br>
-            <div class="products-divider" id="beef">
-            <h3>Beef Products</h3>
+            <div class="products-divider" >
+            <h3 id="beef">Beef Products</h3>
             <div class="product-list">
                 <!-- Beef Products -->
                 
                 <div class="product">
+                    <form class="product-form">
                     <p >Beef Fingers</p>
                     <img src="images\beef fingers boneless.jpeg" alt="Beef Fingers">
-                    <p>Price per kg: Sh600</p>
-                    <!-- <form> -->
+                    <p>Price per kg: Sh600</p>                    
                     <label for="quantity-beef-fingers"><b>Select Quantity:</b></label><br>
                      <select id="quantity-beef-fingers"  name="quantity"> 
                         <option> </option>
@@ -107,12 +126,14 @@
                     </select>
                     <br>
                     <br>
-                    <button onclick="addToCart('BEEF FINGERS', 600)">
+                    <button class="cartbtn" type="button" onclick="addToCart('BEEF FINGERS', 600)">
                         <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart
                     </button>
-                    <!-- </form> -->
+                    </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Teriyaki Beef Bites</p>
                     <img src="images\teriyaki-beef-bites.jpg" alt="Teriyaki Beef Bites">
                     <p>Price per kg: Sh650</p>
@@ -124,11 +145,13 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('TERIYAKI BEEF BITES', 650)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart
+                    <button class="cartbtn" type="button" onclick="addToCart('TERIYAKI BEEF BITES', 650)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart
                     </button>
-                
+                    </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Spicy Beef Meatballs</p>
                     <img src="images\spicy meatballs.jpg" alt="Spicy Beef Meatballs">
                     <p>Price per kg: Sh650</p>
@@ -140,10 +163,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('SPICY MEATBALLS', 650)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('SPICY MEATBALLS', 650)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Beef BBQ Bites</p>
                     <img src="images\Steak-Bites.jpg" alt="Beef BBQ Bites">
                     <p>Price per kg: Sh680</p>
@@ -155,10 +180,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('BEEF BBQ BITES', 680)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('BEEF BBQ BITES', 680)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Beef Skewers</p>
                     <img src="images\beef skewers.png" alt="Beef Skewers">
                     <p>Price per kg: Sh750</p>
@@ -170,10 +197,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('BEEF SKEWERS', 750)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('BEEF SKEWERS', 750)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Beef Short Ribs</p>
                     <img src="images\beef_short_rib.jpg" alt="Beef Short Ribs">
                     <p>Price per kg: Sh600</p>
@@ -185,10 +214,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('BEEF SHORT RIBS', 600)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('BEEF SHORT RIBS', 600)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Seasoned Beef Patties</p>
                     <img src="images\beef patties.webp" alt="Seasoned Beef Patties">
                     <p>Price per kg: Sh650</p>
@@ -200,17 +231,19 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('SEASONED BEEF PATTIES', 650)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('SEASONED BEEF PATTIES', 650)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 </div><!-- product-list -->
             </div>
 
-            <div class="products-divider" id="chicken">
+            <div class="products-divider">
                 <!-- Chicken Products -->
-                <h3>Chicken Products</h3>
+                <h3 id="chicken">Chicken Products</h3>
                 <div class="product-list">
                 <div class="product">
+                    <form class="product-form">
                     <p>Marinated Chicken Wings</p>
                     <img src="images\marinated chicken wings.jpg" alt="Marinated Chicken Wings">
                     <p>Price per kg: Sh680</p>
@@ -222,10 +255,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('MARINATED CHICKEN WINGS', 680)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('MARINATED CHICKEN WINGS', 680)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Chicken Nuggets</p>
                     <img src="images\uncooked breaded chicken nuggets.jpg" alt="Chicken Nuggets">
                     <p>Price per kg: Sh700</p>
@@ -237,10 +272,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('CHICKEN NUGGETS', 700)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('CHICKEN NUGGETS', 700)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Stuffed Chicken Breasts</p>
                     <img src="images\stuffed chicken breast.webp" alt="Stuffed Chicken Breasts">
                     <p>Price per kg: Sh730</p>
@@ -252,10 +289,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('STUFFED CHICKEN BREAST', 730)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('STUFFED CHICKEN BREAST', 730)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Spicy Chicken Meatball Mix</p>
                     <img src="images\raw spicy meatballs.webp" alt="Spicy Chicken Meatball Mix">
                     <p>Price per kg: Sh700</p>
@@ -267,10 +306,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('SPICY CHICKEN MEATBALL', 700)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('SPICY CHICKEN MEATBALL', 700)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Tandoori Chicken Pieces</p>
                     <img src="images\tandoori chicken pieces.jpg" alt="Tandoori Chicken Pieces">
                     <p>Price per kg: Sh720</p>
@@ -282,10 +323,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('TANDOORI CHICKEN PIECES', 720)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('TANDOORI CHICKEN PIECES', 720)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Teriyaki Chicken Skewers</p>
                     <img src="images\teriyaki chicken skewers.webp" alt="Teriyaki Chicken Skewers">
                     <p>Price per kg: Sh750</p>
@@ -297,10 +340,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('TERIYAKI CHICKEN SKEWERS', 750)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('TERIYAKI CHICKEN SKEWERS', 750)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Chicken Fingers</p>
                     <img src="https://meatonline.ae/uploads/products/image/490x330/0102040018.png" alt="Chicken Fingers">
                     <p>Price per kg: Sh700</p>
@@ -312,10 +357,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('CHICKEN FINGERS', 700)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('CHICKEN FINGERS', 700)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Marinated Whole Chicken (Kienyeji)</p>
                     <img src="images\marinated whole chicken.png" alt="Marinated Whole Chicken" class="oveflow-pic">
                     <p>Price per piece: Sh1200</p>
@@ -323,28 +370,31 @@
                     <input type="number" id="quantity-marinated-whole-chicken-kienyeji" name="quantity">
 
                     <br><br>
-                    <button onclick="addToCart('MARINATED WHOLE CHICKEN (KIENYEJI)', 1200)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('MARINATED WHOLE CHICKEN (KIENYEJI)', 1200)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
 
                 <div class="product">
+                    <form class="product-form">
                     <p>Marinated Whole Chicken (Broiler)</p>
                     <img src="images\marinated whole chicken.png" alt="Marinated Whole Chicken" class="oveflow-pic">
                     <p>Price per piece: Sh850</p>
                     <label for="quantity-chicken-broiler"><b>Enter Quantity(Number):</b></label>
                     <input type="number" id="quantity-marinated-whole-chicken-broiler" name="quantity">
                     <br><br>
-                    <button onclick="addToCart('MARINATED WHOLE CHICKEN (BROILER)', 1200)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('MARINATED WHOLE CHICKEN (BROILER)', 850)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 </div><!-- product-list -->
             </div>
 
-            <div class="products-divider" id="lamb">
+            <div class="products-divider">
                 <!-- Lamb Products -->
-                <h3>Lamb Products</h3>
+                <h3 id="lamb">Lamb Products</h3>
                 <div class="product-list">
                 <div class="product">
+                    <form class="product-form">
                     <p>Lamb Fingers</p>
                     <img src="images\lamb rib fingers.jpg" alt="Lamb Fingers">
                     <p>Price per kg: Sh780</p>
@@ -356,10 +406,11 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('LAMB FINGERS', 780)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('LAMB FINGERS', 780)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
                 <div class="product">
+                    <form class="product-form">
                     <p>Spicy Lamb Meatballs</p>
                     <img src="images\Easy-Lamb-Meatballs.jpg" alt="Spicy Lamb Meatballs">
                     <p>Price per kg: Sh800</p>
@@ -371,10 +422,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('SPICY LAMB MEATBALLS', 800)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('SPICY LAMB MEATBALLS', 800)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Spicy Lamb BBQ Bites</p>
                     <img src="images\spicy lamb bbq bites.webp" alt="Spicy Lamb BBQ Bites">
                     <p>Price per kg: Sh780</p>
@@ -386,10 +439,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('SPICY LAMB BBQ BITES', 780)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('SPICY LAMB BBQ BITES', 780)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Lamb Skewers</p>
                     <img src="images\lamb skewers.jpg" alt="Lamb Skewers">
                     <p>Price per kg: Sh780</p>
@@ -401,10 +456,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('LAMB SKEWERS', 780)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('LAMB SKEWERS', 780)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Lamb Ribs</p>
                     <img src="images\lamb-ribs.jpg" alt="Lamb Ribs">
                     <p>Price per kg: Sh750</p>
@@ -416,10 +473,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('LAMB RIBS', 750)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('LAMB RIBS', 750)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Seasoned Lamb Patties</p>
                     <img src="images\-Lamb-Patties.webp" alt="Seasoned Lamb Patties">
                     <p>Price per kg: Sh700</p>
@@ -431,19 +490,20 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('SEASONED LAMB PATTIES', 700)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('SEASONED LAMB PATTIES', 700)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
 
                 </div><!-- product-list -->
             </div>
 
-            <div class="products-divider" id="rabbit">
+            <div class="products-divider" >
                 <!-- Rabbit Products -->
-                <h3>Rabbit Products</h3>
+                <h3 id="rabbit">Rabbit Products</h3>
                 <div class="product-list">
 
                 <div class="product">
+                    <form class="product-form">
                     <p>Rabbit Meatball Mix</p>
                     <img src="images\rabbit burgers and meatballs.jpg" alt="Rabbit Meatball Mix">
                     <p>Price per kg: Sh900</p>
@@ -455,20 +515,23 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('RABBIT MEATBALL MIX', 900)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('RABBIT MEATBALL MIX', 900)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
                 <div class="product">
+                    <form class="product-form">
                     <p>Tandoori Rabbit Meat Full</p>
                     <img src="images\rabbit meat.png" alt="Tandoori Rabbit Meat" class="oveflow-pic">
                     <p>Price per piece: Sh2200</p>
                     <label for="quantity-rabbit-full"><b>Enter Quantity(Number):</b></label>
                     <input type="number" id="quantity-tandoori-rabbit-meat-full" name="quantity">
                     <br><br>
-                    <button onclick="addToCart('TANDOORI RABBIT MEAT FULL', 2200)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('TANDOORI RABBIT MEAT FULL', 2200)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Herb Seasoned Rabbit Chops</p>
                     <img src="images\herb seasoned rabbit chops 2.webp" alt="Herb Seasoned Rabbit Chops" class="oveflow-pic">
                     <p>Price per kg: Sh900</p>
@@ -480,10 +543,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('HERB SEASONED RABBIT CHOPS', 900)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('HERB SEASONED RABBIT CHOPS', 900)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Rabbit Nuggets</p>
                     <img src="images\raw rabbit nuggets.webp" alt="Rabbit Nuggets">
                     <p>Price per kg: Sh850</p>
@@ -495,10 +560,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('RABBIT NUGGETS', 850)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('RABBIT NUGGETS', 850)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Rabbit Meat Fingers</p>
                     <img src="images\rabbit meat fingers.jpg" alt="Rabbit Meat Fingers">
                     <p>Price per kg: Sh850</p>
@@ -510,10 +577,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('RABBIT MEAT FINGERS', 850)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('RABBIT MEAT FINGERS', 850)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Rabbit Bites</p>
                     <img src="images\rabbit bites.jfif" alt="Rabbit Bites">
                     <p>Price per kg: Sh900</p>
@@ -525,10 +594,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('RABBIT BITES', 900)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('RABBIT BITES', 900)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
+
                 <div class="product">
+                    <form class="product-form">
                     <p>Rabbit Patties</p>
                     <img src="images\rabbit burgers and meatballs.jpg" alt="Rabbit Patties">
                     <p>Price per kg: Sh950</p>
@@ -540,11 +611,12 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('RABBIT PATTIES', 950)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('RABBIT PATTIES', 950)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
 
                 <div class="product">
+                    <form class="product-form">
                     <p>Rabbit Skewers Marinated</p>
                     <img src="images\rabbit fillet skewers.jpg" alt="Rabbit Skewers" class="oveflow-pic">
                     <p>Price per kg: Sh750</p>
@@ -556,8 +628,8 @@
                         <option value="1">1 kg</option>
                         <option value="2">2 kg</option>
                     </select><br><br>
-                    <button onclick="addToCart('RABBIT SKEWERS MARINATED', 750)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
-                
+                    <button class="cartbtn" type="button" onclick="addToCart('RABBIT SKEWERS MARINATED', 750)"><span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>  Add to Cart</button>
+                </form>
                 </div>
                 </div><!-- product-list -->
             </div>
